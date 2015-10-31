@@ -12,6 +12,8 @@
 		58615EE81BE472F70007D148 /* KFlickr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 58615EE61BE472F70007D148 /* KFlickr.xcdatamodeld */; };
 		58615EEB1BE472F70007D148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58615EE91BE472F70007D148 /* Main.storyboard */; };
 		58615EED1BE472F70007D148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58615EEC1BE472F70007D148 /* Assets.xcassets */; };
+		58615EF51BE48E2C0007D148 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58615EF41BE48E2C0007D148 /* MovieCell.swift */; };
+		58615EF71BE496800007D148 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58615EF61BE496800007D148 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		58615EEA1BE472F70007D148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58615EEC1BE472F70007D148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58615EEE1BE472F70007D148 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58615EF41BE48E2C0007D148 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		58615EF61BE496800007D148 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +62,10 @@
 				58615EE41BE472F70007D148 /* ViewController.swift */,
 				58615EE91BE472F70007D148 /* Main.storyboard */,
 				58615EEC1BE472F70007D148 /* Assets.xcassets */,
+				58615EF61BE496800007D148 /* Movie.swift */,
 				58615EEE1BE472F70007D148 /* Info.plist */,
 				58615EE61BE472F70007D148 /* KFlickr.xcdatamodeld */,
+				58615EF41BE48E2C0007D148 /* MovieCell.swift */,
 			);
 			path = KFlickr;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 				TargetAttributes = {
 					58615EDE1BE472F70007D148 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = CMNXS968Z4;
 					};
 				};
 			};
@@ -136,7 +143,9 @@
 			files = (
 				58615EE51BE472F70007D148 /* ViewController.swift in Sources */,
 				58615EE31BE472F70007D148 /* AppDelegate.swift in Sources */,
+				58615EF51BE48E2C0007D148 /* MovieCell.swift in Sources */,
 				58615EE81BE472F70007D148 /* KFlickr.xcdatamodeld in Sources */,
+				58615EF71BE496800007D148 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +249,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KFlickr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SNC.KFlickr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -252,10 +264,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KFlickr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SNC.KFlickr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
