@@ -13,9 +13,16 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let URL_PHTOS = "https://api.flickr.com/services/rest/?format=json&api_key=b7579223391202d202cedadbeb2dec98&method=flickr.people.getPublicPhotos&user_id=9205063@N02"
     let URL_BASE = "http://api.themoviedb.org/3/movie/popular?api_key=ff743742b3b6c89feb59dfc138b4c12f"
+
+    let defaultSize = CGSizeMake(280, 422)
+    let focusSize = CGSizeMake(308, 464)
     
     var movies = [Movie]()
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +46,7 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
                 print(error.debugDescription)
                 
             } else {
-                do{
+                do {
                     let dict = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments) as? Dictionary<String, AnyObject>
                     
                     if let results = dict!["results"] as? [Dictionary<String, AnyObject>] {
@@ -79,8 +86,6 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
         } else {
             return MovieCell()
         }
-        
-        //return UICollectionViewCell()
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -93,8 +98,21 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(480, 320)
+        return CGSizeMake(280, 422)
     }
     
-}
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        
+        if let prev = context.previouslyFocusedView as? MovieCell {
+            UIView.animateWithDuration(0.1, animations: { ()->Void in
+                prev.movieImg.frame.size = self.defaultSize
+            })
+        }
 
+        if let next = context.nextFocusedView as? MovieCell {
+            UIView.animateWithDuration(0.1, animations: { ()->Void in
+                next.movieImg.frame.size = self.focusSize
+            })
+        }
+    }
+}
