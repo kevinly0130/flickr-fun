@@ -23,7 +23,6 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,10 +80,25 @@ class ViewController: UIViewController , UICollectionViewDelegate, UICollectionV
             let movie = movies[indexPath.row]
             cell.configreCell(movie)
             
+            if cell.gestureRecognizers?.count == nil {
+                
+                let tap = UITapGestureRecognizer(target: self, action: Selector("tapped:"))
+                
+                tap.allowedPressTypes = [NSNumber(integer: UIPressType.Select.rawValue)]
+                
+                cell.addGestureRecognizer(tap)
+            }
+            
             return cell
             
         } else {
             return MovieCell()
+        }
+    }
+    
+    func tapped(gesture: UIGestureRecognizer) {
+        if let cell = gesture.view as? MovieCell {
+            print("You chose: \(cell.movieLbl.text)")
         }
     }
     
